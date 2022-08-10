@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="css-circular-prog-bar.css" rel="stylesheet">
+        <link rel="stylesheet" href="dashboard.css">
+
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="radialprogress.js"></script> -->
+        <!------ Include the above in your HEAD tag ---------->
+   </head>
+        
+    <body class="dash">
+        <nav class="navbar navbar-expand navbar-dark navbar-fixed-top bg-primary topnav"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="/Login-register/index.html">Logout <span class="sr-only">(current)</span></a> </li>
+                    <!-- <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> -->
+                </ul>
+                <form class="form-inline my-2 my-md-0"> </form>
+            </div>
+        </nav>
+        <div id="wrapper" class="toggled">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                
+                <ul class="sidebar-nav">
+                     <li><img src="user.png" width="200" height="200"></li>
+                    <li class="sidebar-brand"><p id="username" style="color: #a94442;" ></p></li>
+                    <li> <a href="/dashboard/dashboard.html">Dashboard</a> </li>
+
+                    <li class="dro">
+                      <div class="dropdown">
+                        <button class="dropbtn">History Of Learnings</button>
+                        <div class="dropdown-content">
+                
+                            <div>
+                                <button class="dropdown-btn">Basic
+                                    <i class="fa fa-caret-down"></i>
+                                  </button>
+                                  <div class="dropdown-container">
+                                    <a href="/History/Baisc/Word/history-word.html">Word</a>
+                                    <a href="/History/Baisc/Sentences/history-senetence.html">Sentences</a>
+                                    <a href="/History/Baisc/Conversation/history-conversation.html">Conversation</a>
+                                  </div>
+                            </div>
+                
+                            <div>
+                                <button class="dropdown-btn">Intermediate
+                                    <i class="fa fa-caret-down"></i>
+                                  </button>
+                                  <div class="dropdown-container">
+                                    <a href="/History/Intermediate/Word/history-word.html">Word</a>
+                                    <a href="/History/Intermediate/Sentences/history-senetence.html">Sentences</a>
+                                    <a href="/History/Intermediate/Conversation/history-conversation.html">Conversation</a>
+                                  </div>
+                            </div>
+                
+                            <div>
+                                <button class="dropdown-btn">Advanced
+                                    <i class="fa fa-caret-down"></i>
+                                  </button>
+                                  <div class="dropdown-container">
+                                    <a href="/History/Advance/Word/history-word.html">Word</a>
+                                    <a href="/History/Advance/Sentences/history-senetence.html">Sentences</a>
+                                    <a href="/History/Advance/Conversation/history-conversation.html">Conversation</a>
+                                  </div>
+                            </div>
+                         
+                        </div>
+                      </div>
+                      
+                    </li>
+                    
+                    <li> <a href="/Book-Recoomendation/book.html">Book Recomendations</a> </li>
+
+              
+                    <li> <a href="#">About</a> </li>
+                    <li> <a href="#">Services</a> </li>
+                    <li> <a href="#">Contact</a> </li>
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <!-- <h1>Simple Sidebar</h1>
+                    <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->                   
+                      <div class="graph panel panel-default panel-primary">
+                        
+                    <!-- <div class="meter cadetblue">
+                      <span data-progress="100" style="width:0;"></span>
+                    </div> -->
+                  <br>
+                   <div class="meter">
+                      <span id="data-progress1"data-progress="100" style="width:0;"></span>
+                    </div>
+                    <h2 id="progress">0% Completed</h1>
+
+                    <!-- <div class="meter orange">
+                      <span data-progress="100" style="width:0;"></span>
+                    </div> -->
+
+                  </div>
+             
+
+                    <div class="courses panel panel-default panel-primary">
+                      <div class="panel-heading ">
+                        My Lernings
+                      </div>
+                      <div class="course">
+
+                        <div class="level">
+                          <div>
+                            <img src="basic.png">
+                          </div>
+                          <div class="name"><a href="/Chart/Basic_Chart/basic_chart.html">Start Basic Lernings</a></div>
+                          <div class="pro">
+                            <progress class="file" id="basic_progress" value="0" max="100"></progress>
+                            <p id="basic_prog">0% Completed</p>
+                          </div>
+
+                        </div>
+
+                        <div class="level">
+                          <div>
+                            <img src="intermediate.jpg">
+                          </div>
+                          <div class="name"><a href="/Chart/Intermediate_Chart/intermediate_chart.html">Intermediate Level</a></div>
+                          <div class="pro">
+                            <progress class="file" id="intermediate_progress" value="0" max="100"></progress>
+                            <p id="intermediate_prog">0% Completed</p>
+                          </div>
+
+                        </div>
+
+
+                        <div class="level">
+                          <div>
+                            <img src="advanced.jpg">
+                          </div>
+                          <div class="name"><a href="/Chart/Advance_chart/advanced_chart.html">Advanced Lernerer</a></div>
+                          <div class="pro">
+                            <progress class="file" id="Advanced_progress" value="0" max="100"></progress>
+                            <p id="Advanced_prog">0% Completed</p>
+                          </div>
+
+                        </div>                    
+            
+          
+                        
+                      </div>
+                     
+                    </div>
+                    
+                </div>
+            </div> <!-- /#page-content-wrapper -->
+        </div> <!-- /#wrapper -->
+        <!-- Bootstrap core JavaScript -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->
+        <script>
+          $(function(){
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $(window).resize(function(e) {
+              if($(window).width()<=768){
+                $("#wrapper").removeClass("toggled");
+              }else{
+                $("#wrapper").addClass("toggled");
+              }
+            });
+          });
+           
+        </script>
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+        <script src="dashboard.js"></script>
+
+      </body>  
+   
+  </html>

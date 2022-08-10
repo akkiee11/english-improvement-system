@@ -1,0 +1,48 @@
+.container{
+    width: 500px;
+    height: 480px;
+    margin:100px;
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: grey;
+}
+
+.heading{
+    margin-top: 40px;
+    width: 480;
+    height: 30px;
+    background-color: blue;
+    border-radius: 40px;
+    text-align: center;
+    color: white;
+    
+}
+
+.learn{
+    margin-top: 80px;
+    margin-bottom: 10px;
+    width: 480;
+    height: 80px;
+}
+a{
+    
+    color: black;
+    text-decoration: none;
+    color: blue;
+    font-size: large;
+}
+
+ul li{
+    text-decoration: none;
+    margin-top: 40px;
+}
+
+ul {
+    list-style-type: none; 
+   
+  }
+
+  p{
+      float: right;
+      color: rgb(53, 51, 51);
+  }

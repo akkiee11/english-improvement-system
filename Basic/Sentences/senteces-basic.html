@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="word_style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=zvi0OSp1"></script>
+    
+   <title>English Improvement System</title>
+</head>
+<body>
+  
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> Basic Level - Speaking Senteces will help you improve your Speaking Skills.
+          </div>
+          <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+          </div>
+        </header>
+      
+        <main class="msger-chat">
+          <div class="msg left-msg">
+            <div
+             class="msg-img"
+             style="background-image: url(bot_image.jpg)"
+            ></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">BOT</div>
+                <div class="msg-info-time">12:45</div>
+              </div>
+      
+              <div id="welcom-message" class="msg-text1 left-msg">
+                
+
+                Hi, welcome speak to test. 😄 
+                <br>
+                Speak the following sentence.
+
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="msg left-msg">
+            <div
+             class="msg-img"
+             style="background-image: url(bot_image.jpg)"
+            ></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">BOT</div>
+                <div class="msg-info-time">12:45</div>
+              </div>
+              <div id="first-word" class="msg-text1">
+              </div>
+            </div>
+          </div>
+          </div>
+        </main>
+        <div class="msger-inputarea">
+          <!-- <input id="note-textarea"  class="msger-input" placeholder="Create a new note by typing or using voice recognition." rows="6"></input> -->
+          <input id="word-spoken"  class="msger-input" placeholder="Create a new note by typing or using voice recognition." rows="6" >
+          
+        </input>
+          <div id="timer" class="btn">
+            Click to start
+          </div>
+          <button id="start-record-btn" type="submit" class="btn btn-primary shadow-none">
+            <i class="fa fa-microphone"></i>
+          </button>
+        </div>
+      </section>
+      <script src="word_script.js"></script>
+      <script src="word_index.js"></script>
+      <script src="word-collection.js"></script>
+      <script src="word.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+      <script >
+        var firebaseConfig = {
+        apiKey: "AIzaSyB86HScYAk4_CR1f1MYDKpzNZgcQSm_IAU",
+        authDomain: "upload-download-27cee.firebaseapp.com",
+        projectId: "upload-download-27cee",
+        storageBucket: "upload-download-27cee.appspot.com",
+        messagingSenderId: "46795543745",
+        appId: "1:46795543745:web:8a19699e2e986a768b3040",
+        measurementId: "G-2P6SQ2LNL3"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      
+
+      </script>
+</body>
+</html>

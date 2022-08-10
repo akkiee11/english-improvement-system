@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="learn_chart.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            Explore Your Knowledge In Intermediate Level
+        </div>
+        <div class="learn">
+            
+            <ul>
+               <li><a href="/Intermediate/word/word-intermediate.html">Words</a> <p id="count_word">0/2000</p></li><hr>
+                <li><a href="/Intermediate/Sentences/senteces-intermediate.html">Sentence</a><p id="count_sentence">0/2000</p></li><hr>
+                <li><a href="/Intermediate/Conversation/conversation.html">Conversation</a><p id ="con_count">0/75</p></li>
+            </ul>
+        </div>
+
+        </div>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+
+
+<script id="MainScript">
+        var firebaseConfig = {
+        apiKey: "AIzaSyB86HScYAk4_CR1f1MYDKpzNZgcQSm_IAU",
+        authDomain: "upload-download-27cee.firebaseapp.com",
+        projectId: "upload-download-27cee",
+        storageBucket: "upload-download-27cee.appspot.com",
+        messagingSenderId: "46795543745",
+        appId: "1:46795543745:web:8a19699e2e986a768b3040",
+        measurementId: "G-2P6SQ2LNL3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db=firebase.firestore();
+
+
+    
+     function selectAlldata(){
+     let count=0;
+    const email=localStorage.getItem('Email');
+    firebase.database().ref().child('word_intermediate').orderByChild('Email').equalTo(email)
+    .once('value',
+      function(Allrecord){
+          Allrecord.forEach(
+              function(CurrentRecord){
+                  count++;
+                  console.log("Count is ",count);
+                  document.getElementById("count_word").innerHTML = `${count} /1000 `;
+              }
+          )
+      });
+    let sen_count=0;
+    firebase.database().ref().child('sentences_intermediate').orderByChild('Email').equalTo(email)
+    .once('value',
+      function(Allrecord){
+          Allrecord.forEach(
+              function(CurrentRecord){
+                  sen_count++;
+                  console.log("Sen Count is ",sen_count);
+                  document.getElementById("count_sentence").innerHTML = `${sen_count} /1000 `;
+              }
+          )
+      });
+
+      let con_count=0;
+      firebase.database().ref().child('conversation_basic_count').orderByChild('Email').equalTo(email)
+      .once('value',
+      function(Allrecord){
+          Allrecord.forEach(
+              function(CurrentRecord){
+                con_count++;
+                  console.log("Count is ",con_count);
+                  document.getElementById("con_count").innerHTML = `${con_count} /1000 `;
+              }
+          )
+      });
+
+
+
+  }
+
+
+window.onload=selectAlldata;
+
+
+
+</script>
+     
+</body>
+</html>

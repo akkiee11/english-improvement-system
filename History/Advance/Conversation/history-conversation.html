@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="history.css">
+    <title>History of User - Conversation</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+          <h3>History of User - Conversation</h3>
+        </header>
+        <div class="table-wrapper">
+          <table class="table-users">
+            <tr>
+              <th>Sentence from BOT</th>
+              <th>Sentence To Speak</th>
+              <th>Sentence Spoken </th>
+              <th>Accuracy</th>
+            </tr>
+          </table>
+        </div>
+
+<!--Firebase Libraries-->
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-firestore.js"></script>
+
+
+<script id="MainScript">
+        var firebaseConfig = {
+        apiKey: "AIzaSyB86HScYAk4_CR1f1MYDKpzNZgcQSm_IAU",
+        authDomain: "upload-download-27cee.firebaseapp.com",
+        projectId: "upload-download-27cee",
+        storageBucket: "upload-download-27cee.appspot.com",
+        messagingSenderId: "46795543745",
+        appId: "1:46795543745:web:8a19699e2e986a768b3040",
+        measurementId: "G-2P6SQ2LNL3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db=firebase.firestore();
+    
+//----------------------Ready--------------------------------/
+
+function InsertWord(wordtospeak,wordspoken,accuracy){
+    let id=Math.random().toString(36).substr(2, 9);
+    firebase.database().ref('word_basic/'+id).set({
+            id:id,
+            wordToSpeak : wordtospeak,
+            wordSpoken :wordspoken,
+            accuracy:accuracy
+        });
+}
+
+
+function selectAlldata(){
+  var count=0;
+  const email=localStorage.getItem('Email');
+  firebase.database().ref().child('conversation_advance').orderByChild('Email').equalTo(email)
+    .once('value',
+    function(Allrecord){
+        Allrecord.forEach(
+            function(CurrentRecord){
+                var accuracy=CurrentRecord.val().accuracy;
+                var wordSpoken=CurrentRecord.val().wordSpoken;
+                var wordToSpeak=CurrentRecord.val().wordToSpeak;
+                var wordFromBot=CurrentRecord.val().wordFromBot;
+                console.log(accuracy,wordSpoken,wordToSpeak,wordFromBot);
+
+                
+                count++;
+                console.log("Count is ",count);
+                display(accuracy,wordSpoken,wordToSpeak,wordFromBot);
+            }
+        )
+    }); 
+}
+
+
+const tableUsers = document.querySelector('.table-users');
+
+let id;
+
+function display(accuracy,wordSpoken,wordToSpeak,wordFromBot ){
+    const tr = `
+    <tr data-id='${1}'>
+      <td>${wordFromBot}</td>
+      <td>${wordToSpeak}</td>
+      <td>${wordSpoken}</td>
+      <td>${accuracy}</td>
+    </tr>
+  `;
+  tableUsers.insertAdjacentHTML('beforeend', tr);
+}
+
+
+window.onload=selectAlldata;
+
+// InsertWord("happy","happy",100);
+// InsertWord("akshay","akshay",100);
+// InsertWord("rajesh","rajesh",100);
+// InsertWord("akshay","apshay",90);
+
+</script>
+
+
+</body>
+</html>
